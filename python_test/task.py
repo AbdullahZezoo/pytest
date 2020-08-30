@@ -47,7 +47,7 @@ class Test(unittest.TestCase):
         #Navigate to app page
         self.driver.get("https://www.phptravels.net/register")
         
-        #self.get_status()
+        self.get_status()
         
         self.driver.find_element_by_name("firstname").send_keys("Abdullah")
         self.driver.find_element_by_name("lastname").send_keys("Abdelaziz")
@@ -58,15 +58,15 @@ class Test(unittest.TestCase):
         self.driver.find_element_by_class_name("signupbtn.btn_full.btn.btn-success.btn-block.btn-lg").send_keys(Keys.ENTER)
         time.sleep(3)
         
-        url = self.getCurrentUrl
+        url = self.getCurrentUrl()
         self.assertUrl(url)
                 
     
     
-    def test_b_login(self) :
+    def test_b_login_1(self) :
         self.driver.get("https://www.phptravels.net/login")
         
-        #self.get_status()
+        self.get_status()
     
         self.driver.find_element_by_name("username").send_keys("abdullahabdelaziz0@gmail.com")
         self.driver.find_element_by_name("password").send_keys("Aa010012")
@@ -74,7 +74,49 @@ class Test(unittest.TestCase):
         
         time.sleep(3)
         
-        url = self.getCurrentUrl
+        url = self.getCurrentUrl()
+        self.assertUrl(url)
+        
+    def test_b_login_2(self) :
+        self.driver.get("https://www.phptravels.net/login")
+        
+        self.get_status()
+    
+        self.driver.find_element_by_name("username").send_keys("abdullahabdelaziz0@gmail.com")
+        self.driver.find_element_by_name("password").send_keys("12345678")
+        self.driver.find_element_by_class_name("btn.btn-primary.btn-lg.btn-block.loginbtn").send_keys(Keys.ENTER)
+        
+        time.sleep(3)
+        
+        url = self.getCurrentUrl()
+        self.assertUrl(url)
+        
+    def test_b_login_3(self) :
+        self.driver.get("https://www.phptravels.net/login")
+        
+        self.get_status()
+    
+        self.driver.find_element_by_name("username").send_keys("abdullahabdelaziz0@gmail.com")
+        self.driver.find_element_by_name("password").send_keys("asdfghjk")
+        self.driver.find_element_by_class_name("btn.btn-primary.btn-lg.btn-block.loginbtn").send_keys(Keys.ENTER)
+        
+        time.sleep(3)
+        
+        url = self.getCurrentUrl()
+        self.assertUrl(url)
+        
+    def test_b_login_4(self) :
+        self.driver.get("https://www.phptravels.net/login")
+        
+        self.get_status()
+    
+        self.driver.find_element_by_name("username").send_keys("abdullahabdelaziz@gmail.com")
+        self.driver.find_element_by_name("password").send_keys("Aa010012")
+        self.driver.find_element_by_class_name("btn.btn-primary.btn-lg.btn-block.loginbtn").send_keys(Keys.ENTER)
+        
+        time.sleep(3)
+        
+        url = self.getCurrentUrl()
         self.assertUrl(url)
 
     def getCurrentUrl(self) :
