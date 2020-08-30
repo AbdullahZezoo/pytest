@@ -118,6 +118,20 @@ class Test(unittest.TestCase):
         
         url = self.getCurrentUrl()
         self.assertUrl(url)
+        
+    def test_b_login_5(self) :
+        self.driver.get("https://www.phptravels.net/login")
+        
+        self.get_status()
+    
+        self.driver.find_element_by_name("username").send_keys("abdullahabdelaziz@gmail.com")
+        self.driver.find_element_by_name("password").send_keys("Ao12")
+        self.driver.find_element_by_class_name("btn.btn-primary.btn-lg.btn-block.loginbtn").send_keys(Keys.ENTER)
+        
+        time.sleep(3)
+        
+        url = self.getCurrentUrl()
+        self.assertUrl(url)
 
     def getCurrentUrl(self) :
         url = self.driver.current_url()
