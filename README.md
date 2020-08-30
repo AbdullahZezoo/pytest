@@ -18,7 +18,9 @@ ____________
 
 there are 2 testcase (test_a_register and test_b_login) and 
 (setUp and tearDown methods to establish and terminate the test) and
+getCurrentUrl, assertUrl
 get_status, take_screenshots
+
 
 
 setUp:
@@ -38,6 +40,14 @@ take_b_login:
 _____________
 it goes to https://www.phptravels.net/login, then get status and enter username, password, click_button then Assert the url with expected_url url = "https://www.phptravels.net/account/"
 
+
+getCurrentUrl :
+_______________
+return current url.
+
+assertUrl :
+__________
+assertequal (expected_url, actual_url).
 
 take_screenshots:
 _________________
