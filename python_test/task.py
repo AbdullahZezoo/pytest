@@ -124,7 +124,7 @@ class Test(unittest.TestCase):
         
         self.get_status()
     
-        self.driver.find_element_by_name("username").send_keys("abdullahabdelaziz@gmail.com")
+        self.driver.find_element_by_name("username").send_keys("abdullahabdelaziz0@gmail.com")
         self.driver.find_element_by_name("password").send_keys("Ao12")
         self.driver.find_element_by_class_name("btn.btn-primary.btn-lg.btn-block.loginbtn").send_keys(Keys.ENTER)
         
