@@ -47,7 +47,7 @@ class Test(unittest.TestCase):
         #Navigate to app page
         self.driver.get("https://www.phptravels.net/register")
         
-        self.get_status()
+        #self.get_status()
         
         self.driver.find_element_by_name("firstname").send_keys("Abdullah")
         self.driver.find_element_by_name("lastname").send_keys("Abdelaziz")
@@ -57,31 +57,41 @@ class Test(unittest.TestCase):
         self.driver.find_element_by_name("confirmpassword").send_keys("Aa010012")
         self.driver.find_element_by_class_name("signupbtn.btn_full.btn.btn-success.btn-block.btn-lg").send_keys(Keys.ENTER)
         time.sleep(3)
-        url = self.driver.current_url
-        _url = "https://www.phptravels.net/account/"
-        self.assertEqual(url, _url)
+        
+        url = self.getCurrentUrl
+        self.assertUrl(url)
                 
     
     
     def test_b_login(self) :
         self.driver.get("https://www.phptravels.net/login")
         
-        self.get_status()
+        #self.get_status()
     
         self.driver.find_element_by_name("username").send_keys("abdullahabdelaziz0@gmail.com")
         self.driver.find_element_by_name("password").send_keys("Aa010012")
         self.driver.find_element_by_class_name("btn.btn-primary.btn-lg.btn-block.loginbtn").send_keys(Keys.ENTER)
         
         time.sleep(3)
-        url = self.driver.current_url
-        _url = "https://www.phptravels.net/account/"
-        self.assertEqual(url, _url)
+        
+        url = self.getCurrentUrl
+        self.assertUrl(url)
 
-        def tearDown(self):
-            self.driver.quit()      
+    def getCurrentUrl(self) :
+        url = self.driver.current_url()
+        return url
+    
+    def assertUrl(self, actual_url) :
+        expected_url = "https://www.phptravels.net/account/"
+        self.assertEqual(expected_url, actual_url)
+
+
+    def tearDown(self):
+            self.driver.quit()
+    
+    
+    
             
 if __name__ == '__main__' :
     unittest.main()
         
-
-
